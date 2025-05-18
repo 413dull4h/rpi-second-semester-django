@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-us-container">
+    <h1 class="main-title">Our Team Members</h1>
+
+    <div class="users-grid">
+        {% for user in users %}
+        <div class="user-card">
+            <div class="card-header">
+                <h3>{{ user.name }}</h3>
+                <span class="category-badge">{{ user.category.name }}</span>
+            </div>
+            <div class="user-details">
+                <p><i class="fas fa-envelope"></i> {{ user.email }}</p>
+                <p><i class="fas fa-phone"></i> {{ user.phone }}</p>
+                <p><i class="fas fa-map-marker-alt"></i> {{ user.address }}</p>
+                {% if user.age > 0 %}
+                <p><i class="fas fa-birthday-cake"></i> Age: {{ user.age }}</p>
+                {% endif %}
+                <p><i class="fas fa-clock"></i> Joined: {{ user.created_at|date:"F d, Y" }}</p>
+                <p><i class="fas fa-check-circle"></i> Status: {% if user.is_active %}Active{% else %}Inactive{% endif
+                    %}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .about-us-container {
+        padding: 3rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .main-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #333;
+        font-size: 2.5rem;
+    }
+
+    .users-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .user-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .user-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-header {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    .category-badge {
+        display: inline-block;
+        padding: 0.3rem 1rem;
+        background: #007bff;
+        color: white;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .user-details {
+        padding: 1.5rem;
+    }
+
+    .user-details p {
+        margin: 0.5rem 0;
+        color: #666;
+    }
+
+    .user-details i {
+        width: 20px;
+        margin-right: 0.5rem;
+        color: #007bff;
+    }
+
+    @media (max-width: 768px) {
+        .users-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}

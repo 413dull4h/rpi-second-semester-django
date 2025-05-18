@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ service.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i class="{{ service.icon }} fa-4x mb-3"></i>
+                        <h1 class="card-title">{{ service.title }}</h1>
+                    </div>
+                    <p class="card-text">{{ service.description }}</p>
+                    <div class="text-center mt-4">
+                        <a href="{% url 'services' %}" class="btn btn-primary">Back to Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

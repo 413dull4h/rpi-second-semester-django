@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - The Moon{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="text-center mb-5">Our Amazing Team</h1>
+            {% if users %}
+            <div class="row mt-4">
+                {% for user in users %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 team-card">
+                        <div class="card-header bg-primary text-white text-center py-3">
+                            {% if user.profile_picture %}
+                            <div class="profile-image-wrapper mb-3">
+                                <img src="{{ user.profile_picture }}" class="rounded-circle profile-image"
+                                    alt="{{ user.name }}">
+                            </div>
+                            {% endif %}
+                            <h5 class="card-title mb-0">{{ user.name }}</h5>
+                            <span class="badge bg-light text-primary mt-2">{{ user.category.name|default:"N/A" }}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-item">
+                                <i class="fas fa-envelope text-primary"></i>
+                                <span>{{ user.email }}</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-phone text-primary"></i>
+                                <span>{{ user.phone }}</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                                <span>{{ user.address }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+            {% else %}
+            <div class="alert alert-info text-center">
+                <i class="fas fa-info-circle me-2"></i>No team members found.
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .team-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-image-wrapper {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+        border: 4px solid #fff;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .info-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+
+    .info-item:hover {
+        background: #e9ecef;
+    }
+
+    .info-item i {
+        width: 25px;
+        margin-right: 10px;
+        font-size: 1.1em;
+    }
+
+    .info-item span {
+        color: #495057;
+    }
+
+    .card-header {
+        border-bottom: none;
+    }
+
+    .badge {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    h1 {
+        color: #2c3e50;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    h1:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: #007bff;
+        border-radius: 2px;
+    }
+</style>
+{% endblock %}

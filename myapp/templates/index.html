@@ -1,0 +1,599 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title animate__animated animate__fadeInDown">Connecting You to Better Healthcare
+                        </h1>
+                        <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Digital solutions
+                            for hospitals, private practices, and patients - all in one platform.</p>
+                        <div class="d-flex flex-wrap animate__animated animate__fadeIn animate__delay-2s">
+                            <a href="{% url 'contact' %}" class="btn btn-hero btn-primary-custom pulse">Book
+                                Appointment</a>
+                            <a href="{% url 'services' %}" class="btn btn-hero btn-outline-custom">Our Services</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://via.placeholder.com/600x500" alt="Healthcare illustration"
+                        class="img-fluid floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light" data-aos="fade-up">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i class="fas fa-hospital feature-icon animate__animated animate__bounceIn"></i>
+                        <h3>Hospital Solutions</h3>
+                        <p>Comprehensive digital tools for hospitals to streamline operations and improve patient care.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i
+                            class="fas fa-user-md feature-icon animate__animated animate__bounceIn animate__delay-1s"></i>
+                        <h3>Private Practice</h3>
+                        <p>Specialized solutions for individual practitioners to manage their practice efficiently.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card p-4 text-center">
+                        <i
+                            class="fas fa-calendar-check feature-icon animate__animated animate__bounceIn animate__delay-2s"></i>
+                        <h3>Patient Portal</h3>
+                        <p>Easy appointment booking, medical records access, and telemedicine services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5 my-5" id="services">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive healthcare solutions tailored to your needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <h4>Telemedicine</h4>
+                        <p>Virtual consultations with healthcare professionals from the comfort of your home.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Appointment Scheduling</h4>
+                        <p>Easy online booking system for patients and management tools for providers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h4>Electronic Health Records</h4>
+                        <p>Secure digital records accessible to authorized healthcare providers.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h4>E-Prescriptions</h4>
+                        <p>Digital prescription services sent directly to your preferred pharmacy.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Practice Analytics</h4>
+                        <p>Data-driven insights to help healthcare providers optimize their practice.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card p-4 text-center">
+                        <div class="service-icon">
+                            <i class="fas fa-comments-dollar"></i>
+                        </div>
+                        <h4>Billing Solutions</h4>
+                        <p>Integrated billing and insurance claim processing for seamless operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="py-5 bg-light" id="doctors">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Our Specialist Doctors</h2>
+                <p class="section-subtitle">Highly qualified professionals ready to assist you</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="doctor-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Doctor"
+                            class="img-fluid doctor-img">
+                        <div class="p-3 text-center">
+                            <h5>Dr. Sarah Johnson</h5>
+                            <p class="text-muted">Cardiologist</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-sm btn-primary-custom">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="doctor-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Doctor"
+                            class="img-fluid doctor-img">
+                        <div class="p-3 text-center">
+                            <h5>Dr. Michael Chen</h5>
+                            <p class="text-muted">Neurologist</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-sm btn-primary-custom">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="doctor-card">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Doctor"
+                            class="img-fluid doctor-img">
+                        <div class="p-3 text-center">
+                            <h5>Dr. Emily Rodriguez</h5>
+                            <p class="text-muted">Pediatrician</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-sm btn-primary-custom">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="doctor-card">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Doctor"
+                            class="img-fluid doctor-img">
+                        <div class="p-3 text-center">
+                            <h5>Dr. David Wilson</h5>
+                            <p class="text-muted">Orthopedic Surgeon</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="#" class="btn btn-sm btn-primary-custom">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary-custom">View All Doctors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5" data-aos="fade-up">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number animate__animated animate__fadeInUp" data-count="250">0</h3>
+                        <p class="stat-label">Partner Hospitals</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number animate__animated animate__fadeInUp animate__delay-1s" data-count="1200">
+                            0</h3>
+                        <p class="stat-label">Healthcare Providers</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number animate__animated animate__fadeInUp animate__delay-2s"
+                            data-count="50000">0</h3>
+                        <p class="stat-label">Patients Served</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <h3 class="stat-number animate__animated animate__fadeInUp animate__delay-3s" data-count="98">0
+                        </h3>
+                        <p class="stat-label">Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Hear from hospitals, doctors, and patients who use our services</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Client"
+                                class="testimonial-img">
+                            <div>
+                                <h5>Jennifer Parker</h5>
+                                <p class="text-muted mb-0">Patient</p>
+                            </div>
+                        </div>
+                        <p>"Booking appointments has never been easier. The telemedicine feature saved me hours of
+                            travel time for follow-up consultations."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client"
+                                class="testimonial-img">
+                            <div>
+                                <h5>Dr. Robert Kim</h5>
+                                <p class="text-muted mb-0">Cardiologist</p>
+                            </div>
+                        </div>
+                        <p>"The practice management tools have streamlined my workflow significantly. I can now focus
+                            more on patient care than paperwork."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/60.jpg" alt="Client"
+                                class="testimonial-img">
+                            <div>
+                                <h5>Maria Gonzalez</h5>
+                                <p class="text-muted mb-0">Hospital Administrator</p>
+                            </div>
+                        </div>
+                        <p>"Our hospital's efficiency improved by 30% after implementing MediCare Connect's solutions.
+                            The staff training was excellent."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="py-5 bg-light" id="appointment">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">Book an Appointment</h2>
+                    <p class="mb-4">Schedule your visit with our healthcare professionals quickly and easily.</p>
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-phone-alt text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-0">Call Us</h5>
+                            <p class="text-muted mb-0">+1 (800) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <i class="fas fa-envelope text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-0">Email Us</h5>
+                            <p class="text-muted mb-0">appointments@medicareconnect.com</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <i class="fas fa-map-marker-alt text-primary me-3 mt-1"></i>
+                        <div>
+                            <h5 class="mb-0">Visit Us</h5>
+                            <p class="text-muted mb-0">123 Healthcare Ave, Medical City, MC 12345</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="appointment-form">
+                        <h4 class="mb-4">Contact Us</h4>
+                        <form method="POST" action="{% url 'contact_submit' %}">
+                            {% csrf_token %}
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" name="phone" class="form-control" placeholder="Your Phone"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject"
+                                        required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control" rows="3" placeholder="Your Message"
+                                        required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="review-form-section py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Share Your Experience</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <form method="POST" action="{% url 'submit_review' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="rating" class="form-label">Rating</label>
+                                    <select class="form-select" id="rating" name="rating" required>
+                                        <option value="">Select Rating</option>
+                                        <option value="5">5 Stars - Excellent</option>
+                                        <option value="4">4 Stars - Very Good</option>
+                                        <option value="3">3 Stars - Good</option>
+                                        <option value="2">2 Stars - Fair</option>
+                                        <option value="1">1 Star - Poor</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="comment" class="form-label">Your Review</label>
+                                    <textarea class="form-control" id="comment" name="comment" rows="4"
+                                        required></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="photo" class="form-label">Your Photo (Optional)</label>
+                                    <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Display Section -->
+    <section class="reviews-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Clients Say</h2>
+            <div class="row">
+                {% for review in reviews %}
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        {% if review.photo %}
+                        <div class="review-photo">
+                            <img src="{{ review.photo.url }}" alt="{{ review.name }}"
+                                class="img-fluid rounded-circle mb-3">
+                        </div>
+                        {% endif %}
+                        <div class="review-content">
+                            <h5 class="review-name">{{ review.name }}</h5>
+                            <div class="review-rating mb-2">
+                                {% for i in "12345"|make_list %}
+                                {% if forloop.counter <= review.rating %} <i class="fas fa-star text-warning"></i>
+                                    {% else %}
+                                    <i class="far fa-star text-warning"></i>
+                                    {% endif %}
+                                    {% endfor %}
+                            </div>
+                            <p class="review-text">{{ review.comment }}</p>
+                            <small class="text-muted">{{ review.created_at|date:"F d, Y" }}</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .review-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-photo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid #f8f9fa;
+        }
+
+        .review-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .review-name {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .review-rating {
+            text-align: center;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+    </style>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Custom cursor
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorOutline = document.querySelector(".cursor-outline");
+
+        window.addEventListener("mousemove", function (e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll("a, button, input, textarea, select");
+
+        interactiveElements.forEach(element => {
+            element.addEventListener("mouseover", () => {
+                cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)";
+                cursorOutline.style.backgroundColor = "rgba(59, 183, 126, 0.2)";
+            });
+
+            element.addEventListener("mouseout", () => {
+                cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
+                cursorOutline.style.backgroundColor = "transparent";
+            });
+        });
+
+        // Animate stats counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+
+        // Trigger stats animation when section is in view
+        const statsSection = document.querySelector('.stats-section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+    </script>
+</body>
+
+
+{% if messages %}
+<div class="messages">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

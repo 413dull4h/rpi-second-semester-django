@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<div class="container py-5">
+    <!-- Mission Statement -->
+    <div class="text-center mb-5">
+        <i class="fas fa-heart-circle-plus fa-3x mb-3 text-primary"></i>
+        <h1 class="display-4">About Us</h1>
+        {% for section in about %}
+        {% if section.title == 'Mission Statement' %}
+        <p class="lead">{{ section.content }}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Our Story -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            {% for section in about %}
+            {% if section.title == 'Our Story' %}
+            <h2 class="mb-4">{{ section.title }}</h2>
+            <p>{{ section.content }}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- What Makes Us Different -->
+    <div class="row mb-5">
+        <h2 class="text-center mb-4">What Makes Us Different</h2>
+        {% for section in about %}
+        {% if section.title == 'What Makes Us Different' %}
+        {% with lines=section.content.split|slice:":4" %}
+        {% for line in lines %}
+        <div class="col-md-3 text-center mb-4">
+            <i class="{{ section.icon }} fa-2x mb-3 text-primary"></i>
+            <p>{{ line }}</p>
+        </div>
+        {% endfor %}
+        {% endwith %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- By The Numbers -->
+    <div class="row mb-5 bg-light py-5">
+        <h2 class="text-center mb-4">By The Numbers</h2>
+        {% for section in about %}
+        {% if section.title == 'By The Numbers' %}
+        {% with stats=section.content.split|slice:":4" %}
+        {% for stat in stats %}
+        <div class="col-md-3 text-center mb-4">
+            <i class="{{ section.icon }} fa-2x mb-3 text-primary"></i>
+            <h3 class="counter">{{ stat }}</h3>
+        </div>
+        {% endfor %}
+        {% endwith %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Our Facility -->
+    <div class="row mb-5">
+        <div class="col-lg-12">
+            {% for section in about %}
+            {% if section.title == 'Our Facility' %}
+            <h2 class="mb-4">{{ section.title }}</h2>
+            {{ section.content|linebreaks }}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Patient Promise -->
+    <div class="row mb-5 bg-light py-5">
+        <div class="col-lg-12">
+            {% for section in about %}
+            {% if section.title == 'Patient Promise' %}
+            <h2 class="text-center mb-4">{{ section.title }}</h2>
+            <div class="row justify-content-center">
+                {% with promises=section.content.split|slice:":4" %}
+                {% for promise in promises %}
+                <div class="col-md-3 text-center mb-3">
+                    <i class="{{ section.icon }} text-success mb-2"></i>
+                    <p>{{ promise }}</p>
+                </div>
+                {% endfor %}
+                {% endwith %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Community Commitment -->
+    <div class="row">
+        <div class="col-lg-12">
+            {% for section in about %}
+            {% if section.title == 'Community Commitment' %}
+            <h2 class="text-center mb-4">{{ section.title }}</h2>
+            {{ section.content|linebreaks }}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- Footer -->
+<footer class="mt-5">
+    <p>&copy; 2024 The Moon. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="{% url 'home' %}" class="text-white mx-2">Home</a>
+        <a href="{% url 'about' %}" class="text-white mx-2">About</a>
+        <a href="{% url 'services' %}" class="text-white mx-2">Services</a>
+        <a href="{% url 'contact' %}" class="text-white mx-2">Contact</a>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle with Popper -->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
