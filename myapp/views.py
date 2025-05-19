@@ -10,7 +10,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, LoginForm
 from .models import UserProfile
-from .forms import UserProfileForm
+from .models import UserProfile  # This is correct
+from .forms import UserProfileForm  
+import requests
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
+OPENAI_API_KEY = "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"
 
 def home(request):
     reviews = Review.objects.filter(is_active=True)
@@ -153,3 +159,36 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', {'form': form})
     user_profile = request.user.profile
     return render(request, 'myapp/profile.html', {'profile': user_profile})
+
+
+def chat_view(request):
+    return render(request, 'myapp/chat.html')
+
+@csrf_exempt
+def chat_api(request):
+    if request.method == "POST":
+        import json
+        data = json.loads(request.body)
+        user_message = data.get("message", "")
+        headers = {
+            "Authorization": f"Bearer {OPENAI_API_KEY}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": user_message}
+            ]
+        }
+        response = requests.post(
+            "https://api.openai.com/v1/chat/completions",
+            headers=headers,
+            json=payload
+        )
+        if response.status_code == 200:
+            reply = response.json()["choices"][0]["message"]["content"]
+            return JsonResponse({"reply": reply})
+        else:
+            return JsonResponse({"reply": "Sorry, there was an error with the AI service."}, status=500)
+    return JsonResponse({"error": "Invalid request"}, status=400)

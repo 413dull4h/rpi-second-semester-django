@@ -457,6 +457,9 @@
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'chat' %}">Chat</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'services' %}">Services</a>
                     </li>
                     <li class="nav-item">
@@ -559,7 +562,7 @@
 
     <!-- Cursor Effect JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const cursor = document.createElement('div');
             cursor.className = 'cursor';
             document.body.appendChild(cursor);
@@ -568,14 +571,15 @@
             cursorOutline.className = 'cursor-outline';
             document.body.appendChild(cursorOutline);
 
-            document.addEventListener('mousemove', function(e) {
+            document.addEventListener('mousemove', function (e) {
                 cursor.style.left = e.clientX + 'px';
                 cursor.style.top = e.clientY + 'px';
-                
+
                 cursorOutline.style.left = e.clientX + 'px';
                 cursorOutline.style.top = e.clientY + 'px';
             });
         });
     </script>
 </body>
+
 </html>
