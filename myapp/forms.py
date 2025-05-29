@@ -1,5 +1,6 @@
 from django import forms
 from .models import CustomUser
+from .models import Appointment
 
 class UserProfileForm(forms.ModelForm):
     class Meta:
@@ -27,5 +28,15 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'email', 'phone', 'address', 'password1', 'password2')
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=150)
+    username = forms.CharField(max_length=150, label="Username or Email")
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+class AppointmentForm(forms.ModelForm):
+    class Meta:
+        model = Appointment
+        fields = ['doctor', 'date', 'time', 'reason']
+        widgets = {
+            'date': forms.DateInput(attrs={'type': 'date'}),
+            'time': forms.TimeInput(attrs={'type': 'time'}),
+        }

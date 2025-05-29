@@ -15,8 +15,11 @@ from .forms import UserProfileForm
 import requests
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from .forms import AppointmentForm
+from .models import Appointment
 
-OPENAI_API_KEY = "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"
+# Remove the OPENAI_API_KEY line
+# OPENAI_API_KEY = "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"
 
 def home(request):
     reviews = Review.objects.filter(is_active=True)
@@ -161,7 +164,8 @@ def edit_profile(request):
     return render(request, 'myapp/profile.html', {'profile': user_profile})
 
 
-def chat_view(request):
+@login_required
+def ai_chat_view(request):
     return render(request, 'myapp/chat.html')
 
 @csrf_exempt
@@ -192,3 +196,41 @@ def chat_api(request):
         else:
             return JsonResponse({"reply": "Sorry, there was an error with the AI service."}, status=500)
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+
+@login_required
+def appointments_view(request):
+    appointments = Appointment.objects.filter(user=request.user)
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            appointment = form.save(commit=False)
+            appointment.user = request.user
+            appointment.save()
+            messages.success(request, 'Appointment booked successfully!')
+            return redirect('appointments')
+    else:
+        form = AppointmentForm()
+    return render(request, 'myapp/appointments.html', {'form': form, 'appointments': appointments})
+
+@login_required
+def delete_appointment(request, pk):
+    appointment = get_object_or_404(Appointment, pk=pk, user=request.user)
+    if request.method == 'POST':
+        appointment.delete()
+        messages.success(request, 'Appointment deleted.')
+        return redirect('appointments')
+    return render(request, 'myapp/delete_appointment.html', {'appointment': appointment})
+
+@login_required
+def edit_appointment(request, pk):
+    appointment = get_object_or_404(Appointment, pk=pk, user=request.user)
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST, instance=appointment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Appointment updated.')
+            return redirect('appointments')
+    else:
+        form = AppointmentForm(instance=appointment)
+    return render(request, 'myapp/edit_appointment.html', {'form': form, 'appointment': appointment})

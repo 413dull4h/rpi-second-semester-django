@@ -132,3 +132,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'myapp.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+EMAIL_HOST_USER = 'abdullahalmamun901@gmail.com'
+EMAIL_HOST_PASSWORD = 'mljt tlsj lpyc yfpu'  # This is your app password
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
+
+# Authentication backends
+AUTHENTICATION_BACKENDS = [
+    'myapp.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',  # Keep the default backend as fallback
+]

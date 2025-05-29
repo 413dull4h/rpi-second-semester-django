@@ -12,7 +12,7 @@
                     <form method="post">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
+                            <label for="username" class="form-label">Username or Email</label>
                             <input type="text" class="form-control" id="username" name="username" required>
                         </div>
                         <div class="mb-3">
@@ -24,6 +24,8 @@
                     <p class="text-center mt-3">
                         Don't have an account? <a href="{% url 'signup' %}">Sign Up</a>
                     </p>
+                    <!-- Add this near your login form -->
+                    <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
                 </div>
             </div>
         </div>

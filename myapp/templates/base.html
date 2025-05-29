@@ -456,9 +456,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'about' %}">About</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'chat' %}">Chat</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'services' %}">Services</a>
                     </li>
@@ -468,6 +466,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                     </li>
+                    <!-- Add this after the Appointments nav item -->
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'appointments' %}">Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ai_chat' %}">AI Chat</a>
+                    </li>
+                    {% endif %}
                 </ul>
                 <ul class="navbar-nav">
                     {% if user.is_authenticated %}
